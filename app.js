@@ -23,15 +23,16 @@ function verificarChute() {
     let chute = parseInt (document.querySelector('input').value);
     if (tentativas===0){
         exibirTextoNaTela ('h1','Suas tentativas acabaram!')
+        exibirTextoNaTela ('p','O número secreto era '+ numeroSecreto);
     }else{
         tentativas--;
         let palavraTentativa = tentativas===1?'tentativa':'tentativas';
         if(chute===numeroSecreto) {
-            exibirTextoNaTela('h1', 'Parabéns,você acertou!');
+            exibirTextoNaTela('p', 'Parabéns,você acertou!');
         } else if(chute > numeroSecreto) {
-            exibirTextoNaTela('h1',`Errou! O número secreto é menor.Você ainda tem ${tentativas}tentaivas.`);
+            exibirTextoNaTela('p',`Errou! O número secreto é menor.Você ainda tem ${tentativas} ${palavraTentativa}.`);
         } else {
-            exibirTextoNaTela('h1',`Errou! O número é maior.Você ainda tem ${tentativas}tentativas.`);
+            exibirTextoNaTela('p',`Errou! O número é maior.Você ainda tem ${tentativas} ${palavraTentativa}.`);
         }
     }
 }

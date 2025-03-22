@@ -18,11 +18,19 @@ function exibirTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
 }
-
+let tentativas=3;
 function verificarChute() {
     let chute = parseInt (document.querySelector('input').value);
-    console.log(chute===numeroSecreto);
+    if (tentativas===0){
+        exibirTextoNaTela ('h1','Suas tentativas acabaram!')
+    }else{
+        tentativas--;
+        if(chute===numeroSecreto) {
+            exibirTextoNaTela('h1', 'Parabéns,você acertou!');
+        } else if(chute > numeroSecreto) {
+            exibirTextoNaTela('h1','Errou! O número secreto é menor.');
+        } else {
+            exibirTextoNaTela('h1','Errou! O número é maior.');
+        }
+    }
 }
-
-//<h1>Jogo de adivinhação</h1>
-//<p>Escolha um número entre 1 e 100</p>

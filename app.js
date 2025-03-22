@@ -25,12 +25,13 @@ function verificarChute() {
         exibirTextoNaTela ('h1','Suas tentativas acabaram!')
     }else{
         tentativas--;
+        let palavraTentativa = tentativas===1?'tentativa':'tentativas';
         if(chute===numeroSecreto) {
             exibirTextoNaTela('h1', 'Parabéns,você acertou!');
         } else if(chute > numeroSecreto) {
-            exibirTextoNaTela('h1','Errou! O número secreto é menor.');
+            exibirTextoNaTela('h1',`Errou! O número secreto é menor.Você ainda tem ${tentativas}tentaivas.`);
         } else {
-            exibirTextoNaTela('h1','Errou! O número é maior.');
+            exibirTextoNaTela('h1',`Errou! O número é maior.Você ainda tem ${tentativas}tentativas.`);
         }
     }
 }
